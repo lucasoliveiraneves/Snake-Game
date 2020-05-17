@@ -1,4 +1,4 @@
-var anima;
+var anima,food;
 
 function principal(){
 var canvas = document.getElementById("cnv")
@@ -14,6 +14,11 @@ snake[0]= {
     x:8 * box,
     y:8 *box
     
+    }
+    var food ={
+     x:Math.floor(Math.random()*15 +1 )* box,
+     y:Math.floor(Math.random()*15 +1 )* box
+
     }
 
 var direction = "right"
@@ -32,6 +37,12 @@ function createSnake(){
 
     }
  
+}
+function fruit (){
+    ctx.fillStyle="red"
+    ctx.fillRect(food.x,food.y,box,box)
+
+
 }
 function moveDown(e){
     e=event.keyCode
@@ -68,6 +79,7 @@ else if(snake[0].y < 0   && direction == "up"){
     
     fundoGame()
     createSnake()
+    fruit()
     
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
