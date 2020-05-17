@@ -64,7 +64,11 @@ function moveDown(e){
 }
 
 function startGame(){
-   if(snake[0].x > 15 * box && direction == "right"){
+   
+   
+   
+   
+    if(snake[0].x > 15 * box && direction == "right"){
        snake[0].x = 0
    }
    else if(snake[0].x < 0 && direction == "left"){
@@ -76,7 +80,12 @@ function startGame(){
 else if(snake[0].y < 0   && direction == "up"){
     snake[0].y = 16 * box;
 }
-    
+    for(var i = 1; i < snake.length;i++){
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            clearInterval(startGame);
+            alert("Game Over")
+        }
+    }
     fundoGame()
     createSnake()
     fruit()
